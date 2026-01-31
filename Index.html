@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="author" content="Mustafah abdullah">
+<meta name="discription" content="A business cafe site for customers">
+<link rel="icon" type="image/x-icon" href="ninbvn.jpg">
+<meta name="keyword" content="HTML, CSS, JS">
+<meta name="icon" content="aisha.jpg">
+<title>𝓖𝓸𝓵𝓭𝓮𝓮𝓷 𝓑𝓸𝓲𝓼𝓮</title>
+<script src="https://js.paystack.co/v1/inline.js"></script>
+
+
+<style>
+:root{
+  --main:#5b3a29;
+  --accent:#f4c16d;
+  --bg:#f8f6f3;
+  --text:#333;
+  --card:#fff;
+}
+
+.dark{
+  --bg:#121212;
+  --text:#eee;
+  --card:#1e1e1e;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Poppins,Arial,sans-serif;
+  scroll-behavior:smooth;
+}
+
+body{
+  background:black;
+  color:var(--text);
+}
+
+section{
+  padding:80px 10%;
+}
+
+h2{
+  text-align:center;
+  font-size:2.4rem;
+  margin-bottom:40px;
+  color:white;
+}
+
+/* ===== NAVBAR ===== */
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:var(--main);
+}
+
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 10%;
+}
+
+.logo{
+  color:#fff;
+  font-size:1.5rem;
+  font-weight:bold;
+}
+
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:20px;
+}
+
+.nav-links a{
+  color:#fff;
+  text-decoration:none;
+}
+
+.nav-links a:hover{
+  color:var(--accent);
+}
+
+.tools{
+  display:flex;
+  gap:8px;
+}
+
+.tools button{
+  border:none;
+  background:var(--accent);
+  padding:6px 10px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.burger{
+  display:none;
+  font-size:26px;
+  color:#fff;
+  cursor:pointer;
+}
+
+/* ===== HOME ===== */
+#home{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background-image:url("aisha.jpg");
+  background-position: center;
+  background-size: cover;
+  color:#fff;
+}
+
+
+a{
+  color: white;
+  text-decoration: none;
+}
+
+/* ===== ABOUT ===== */
+.about{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  align-items:center;
+}
+
+.about p{
+  font-family: Times New Roman, Time sans-serif;
+  font-size: 26px;
+  color: white;
+}
+
+.about img{
+  width:100%;
+  border-radius:20px;
+}
+
+/* ===== GALLERY / SLIDER ===== */
+.slider{
+  max-width:750px;
+  margin:auto;
+  overflow:hidden;
+  border-radius:20px;
+}
+
+.slides{
+  display:flex;
+  transition:0.3s;
+}
+
+.slide-item{
+  min-width:100%;
+  position:relative;
+}
+
+.slide-item img{
+  width:100%;
+  border-radius:20px;
+}
+
+.price-tag{
+  position:absolute;
+  bottom:15px;
+  left:15px;
+  background:rgba(0,0,0,0.75);
+  color:#fff;
+  padding:10px 14px;
+  border-radius:12px;
+  font-size:1.1rem;
+  font-weight:bold;
+}
+
+/* SKILLS */
+.skill{margin-bottom:20px; color: white;}
+.progress{background:#ccc;border-radius:20px;overflow:hidden;margin-top:8px}
+.progress div{height:15px;width:0;
+  background:red;transition:1s}
+
+
+/* ===== CONTACT ===== */
+.contact-form{
+  max-width:500px;
+  margin:auto;
+  background:var(--card);
+  padding:30px;
+  border-radius:20px;
+}
+
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+  padding:12px;
+  margin-bottom:15px;
+  border-radius:10px;
+  border:1px solid #ccc;
+}
+
+.contact-form button{
+  width:100%;
+  padding:12px;
+  background:var(--main);
+  color:#fff;
+  border:none;
+  border-radius:30px;
+}
+
+/* ===== WHATSAPP ===== */
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:#fff;
+  padding:15px;
+  border-radius:50%;
+  font-size:22px;
+  text-decoration:none;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  .about{grid-template-columns:1fr;}
+  .nav-links{
+    position:absolute;
+    top:60px;
+    right:0;
+    background:var(--main);
+    flex-direction:column;
+    width:200px;
+    display:none;
+    padding:20px;
+  }
+  .nav-links.show{display:flex;}
+  .burger{display:block;}
+}
+
+/* SERVICES */
+.services{
+ display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+ gap:20px
+}
+.card{
+ background:var(--card);border-radius:15px;overflow:hidden;
+ box-shadow:0 5px 15px rgba(0,0,0,.15);transition:.3s
+}
+.card:hover{transform:translateY(-10px)}
+.card img{width:100%;height:180px;object-fit:cover}
+.card .info{padding:15px;text-align:center}
+.price{color:var(--primary);font-weight:bold;margin:10px 0}
+.btns{
+ display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.btn{
+ padding:8px 15px;border:none;border-radius:20px;
+ cursor:pointer;text-decoration:none;font-size:14px
+}
+.wh-btn{background:#25d366;color:#fff}
+.pay-btn{background:#0ea5e9;color:#fff}
+ }
+
+</style>
+</head>
+
+<body>
+
+<header>
+<nav class="navbar">
+  <div class="logo">SULAIMAN YAHYA COMPUTER BUSINESS CENTER</div>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <div class="tools">
+    <button onclick="toggleDark()">🌙</button>
+    <button onclick="changeColor()">🎨</button>
+    <div class="burger" onclick="toggleMenu()">☰</div>
+  </div>
+</nav>
+</header>
+
+<section id="home">
+
+  </div>
+</section>
+
+<section id="about">
+  <h2>About Us</h2>
+  <div class="about">
+    <p>
+      We are professional computer business shop providing reable and affordable digital and office services.
+      Our services include typewriting, photocopy, printing, scanning, laminating, graphic design, NIN/BVN Verification and internet/applications and other computer related solutions.
+    </p>
+    <img src="about.jpg">
+  </div>
+</section>
+
+<section id="gallery">
+  <h2>Gallery</h2>
+  <div class="slider">
+    <div class="slides" id="slides">
+      <div class="slide-item">
+        <img src="badiyya.jpg">
+        <div class="price-tag">🥰</div>
+      </div>
+
+      <div class="slide-item">
+        <img src="ffff.jpg">
+        <div class="price-tag">🥰</div>
+      </div>
+
+            <div class="slide-item">
+        <img src="shirt.jpeg">
+        <div class="price-tag">🥰</div>
+      </div>
+
+            <div class="slide-item">
+        <img src="bag.jpeg">
+        <div class="price-tag">🥰</div>
+      </div>
+
+            <div class="slide-item">
+        <img src="img2.jpg">
+        <div class="price-tag">🥰</div>
+      </div>
+
+            <div class="slide-item">
+        <img src="frame.jpeg">
+        <div class="price-tag">🥰</div>
+      </div>
+
+      <div class="slide-item">
+        <img src="hbag.jpeg">
+        <div class="price-tag">🥰</div>
+      </div>
+
+     <div class="slide-item">
+        <img src="juck.jpeg">
+        <div class="price-tag">🥰</div>
+      </div>
+
+
+     <div class="slide-item">
+   <img src="hcard.jpeg">
+   <div class="price-tag">🥰</div>
+ </div>
+
+  <div class="slide-item">
+   <img src="cup.jpeg">
+   <div class="price-tag">🥰 </div>
+ </div>
+ </div>
+  </div>
+</section>
+
+<section id="skills">
+<h2>Our Skills</h2>
+<div class="skill">Typing<div class="progress"><div data-width="95%"></div></div></div>
+<div class="skill">Graphic Design<div class="progress"><div data-width="85%"></div></div></div>
+<div class="skill">Printing<div class="progress"><div data-width="90%"></div></div></div>
+<div class="skill">Online Services<div class="progress"><div data-width="88%">
+</div>
+</div>
+</div>
+</section>
+
+
+<section id="services">
+<h2>Services & Prices</h2>
+<div class="services">
+<div class="card">
+ <img src="typing.jfif">
+ <div class="info">
+  <h3>Typing</h3>
+  <div class="price">₦200 per page</div>
+  <div class="btns">
+   <a class="btn wh-btn"
+   href="https://wa.me/2348114706584?text=I%20want%20Typing%20service%20₦200%20per%20page"
+   target="_blank">WhatsApp Order</a>
+
+   <button class="btn pay-btn"><a href="Bpay2.html">Pay Now</a></button>
+  </div>
+ </div>
+</div>
+
+<div class="card">
+ <img src="graphic2.jpeg">
+ <div class="info">
+  <h3>Graphic Design</h3>
+  <div class="price">₦2,000</div>
+  <div class="btns">
+   <a class="btn wh-btn"
+   href="https://wa.me/2348114706584?text=I%20want%20Graphic%20Design%20service%20₦2000"
+   target="_blank">WhatsApp Order</a>
+
+   <button class="btn pay-btn"><a href="Bpay2.html">Pay Now</a></button>
+  </div>
+ </div>
+</div>
+
+<div class="card">
+ <img src="printing.jfif">
+ <div class="info">
+  <h3>Printing</h3>
+  <div class="price">₦100</div>
+  <div class="btns">
+   <a class="btn wh-btn"
+   href="https://wa.me/2348114706584?text=I%20want%20Printing%20service%20₦100"
+   target="_blank">WhatsApp Order</a>
+
+   <button class="btn pay-btn"><a href="Bpay2.html">Pay Now</a></button>
+  </div>
+ </div>
+</div>
+
+<div class="card">
+ <img src="pdf.jfif">
+ <div class="info">
+  <h3>Print/PDF</h3>
+  <div class="price">₦300</div>
+  <div class="btns">
+   <a class="btn wh-btn"
+   href="https://wa.me/2348114706584?text=I%20want%20Graphic%20Design%20service%20₦2000"
+   target="_blank">WhatsApp Order</a>
+
+   <button class="btn pay-btn"><a href="Bpay2.html">Pay Now</a></button>
+  </div>
+ </div>
+</div>
+
+<div class="card">
+ <img src="ninbvn.jpg">
+ <div class="info">
+  <h3>NIN/BVN</h3>
+  <div class="price">₦1,500</div>
+  <div class="btns">
+   <a class="btn wh-btn"
+   href="https://wa.me/2348114706584?text=I%20want%20Graphic%20Design%20service%20₦2000"
+   target="_blank">WhatsApp Order</a>
+
+   <button class="btn pay-btn"><a href="Bpay2.html">Pay Now</a></button>
+  </div>
+ </div>
+</div>
+
+
+<div class="card">
+ <img src="ninbvn.jpg">
+ <div class="info">
+  <h3>Suspended NIN Solutions</h3>
+  <div class="price">Undisclose</div>
+  <div class="btns">
+   <a class="btn wh-btn"
+   href="https://wa.me/2348114706584?text=I%20want%20Graphic%20Design%20service%20₦2000"
+   target="_blank">WhatsApp Order</a>
+
+   <button class="btn pay-btn"><a href="Bpay2.html">Pay Now</a></button>
+  </div>
+ </div>
+</div>
+
+<div class="card">
+ <img src="ninbvn.jpg">
+ <div class="info">
+  <h3>NIN & BVN Retrieve</h3>
+  <div class="price">₦1,000</div>
+  <div class="btns">
+   <a class="btn wh-btn"
+   href="https://wa.me/2348114706584?text=I%20want%20Graphic%20Design%20service%20₦2000"
+   target="_blank">WhatsApp Order</a>
+
+   <button class="btn pay-btn"><a href="Bpay2.html">Pay Now</a></button>
+  </div>
+ </div>
+</div>
+
+<div class="card">
+ <img src="ninbvn.jpg">
+ <div class="info">
+  <h3>NIN/BVN Modification</h3>
+  <div class="price">Undisclose</div>
+  <div class="btns">
+   <a class="btn wh-btn"
+   href="https://wa.me/2348114706584?text=I%20want%20Graphic%20Design%20service%20₦2000"
+   target="_blank">WhatsApp Order</a>
+
+   <button class="btn pay-btn"><a href="Bpay2.html">Pay Now</a></button>
+  </div>
+ </div>
+</div>
+
+<div class="card">
+ <img src="monie.jpg">
+ <div class="info">
+  <h3>Monie-Point with instant ATM Card</h3>
+  <div class="price">₦1,000</div>
+  <div class="btns">
+   <a class="btn wh-btn"
+   href="https://wa.me/2348114706584?text=I%20want%20Graphic%20Design%20service%20₦2000"
+   target="_blank">WhatsApp Order</a>
+
+   <button class="btn pay-btn"><a href="Bpay2.html">Pay Now</a></button>
+  </div>
+ </div>
+</div>
+
+
+<div class="card">
+ <img src="opay.jpg">
+ <div class="info">
+  <h3>Opay with instant ATM Card</h3>
+  <div class="price">₦1,000</div>
+  <div class="btns">
+   <a class="btn wh-btn"
+   href="https://wa.me/2348114706584?text=I%20want%20Graphic%20Design%20service%20₦2000"
+   target="_blank">WhatsApp Order</a>
+
+   <button class="btn pay-btn"><a href="Bpay2.html">Pay Now</a></button>
+  </div>
+ </div>
+</div>
+
+<div class="card">
+ <img src="excel.png">
+ <div class="info">
+  <h3>Typing/Printing Excel</h3>
+  <div class="price">₦400</div>
+  <div class="btns">
+   <a class="btn wh-btn"
+   href="https://wa.me/2349049594909?text=I%20want%20Graphic%20Design%20service%20₦2000"
+   target="_blank">WhatsApp Order</a>
+
+   <button class="btn pay-btn"><a href="Bpay2.html">Pay Now</button>
+  </div>
+ </div>
+</div>
+
+
+
+
+</div>
+</section>
+
+
+
+<section id="contact">
+  <h2>Contact Us</h2>
+  <form class="contact-form">
+    <input type="text" placeholder="Customer Full Name" required>
+    <input type="email" placeholder="Customer Valid Email" required>
+    <textarea placeholder="Note"></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<a class="whatsapp" href="https://wa.me/2349049594909">💬</a>
+
+<script>
+function toggleMenu(){
+  document.getElementById("navLinks").classList.toggle("show");
+}
+
+function toggleDark(){
+  document.body.classList.toggle("dark");
+}
+
+const colors=["#5b3a29","#1abc9c","#9b59b6","#e67e22"];
+let c=0;
+function changeColor(){
+  document.documentElement.style.setProperty("--main",colors[c++%colors.length]);
+}
+
+/* Skill animation */
+window.addEventListener("scroll",()=>{
+  document.querySelectorAll(".skill-progress").forEach(bar=>{
+    if(bar.getBoundingClientRect().top < window.innerHeight){
+      bar.style.width = bar.dataset.width;
+    }
+  });
+});
+
+/* Slider */
+let index=0;
+setInterval(()=>{
+  index=(index+1)%19;
+  document.getElementById("slides").style.transform =
+    `translateX(-${index*100}%)`;
+},3000);
+
+
+/* Skill animation */
+document.addEventListener("scroll",()=>{
+ document.querySelectorAll('.progress div').forEach(bar=>{
+  if(bar.getBoundingClientRect().top < window.innerHeight){
+   bar.style.width = bar.dataset.width;
+  }
+ });
+});
+
+/* PAYSTACK */
+function payNow(amount){
+ var handler = PaystackPop.setup({
+  key: '9699',
+  email: 'northspider95@email.com',
+  amount: amount * 100,
+  currency: 'NGN',
+  callback: function(response){
+   alert('Payment successful! Ref: ' + response.reference);
+  },
+  onClose: function(){
+   alert('Payment cancelled');
+  }
+ });
+ handler.openIframe();
+}
+</script>
+
+</body>
+</html>
+<dialog>
+</dialog>
+
+[Program finished]
